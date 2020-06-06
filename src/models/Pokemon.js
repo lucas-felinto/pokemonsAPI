@@ -1,5 +1,5 @@
 const Sequelize = require ("sequelize")
-const database = require("../database/index")
+const database = require("../database")
 
 const Pokemons = database.define('pokemons', {
     id: {
