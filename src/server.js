@@ -1,5 +1,5 @@
-const express = require("express")
-const routes = require("./routes")
+const express = require('express')
+const routes = require('./routes')
 const bodyParser = require('body-parser')
 
 const app = express()
@@ -10,5 +10,5 @@ app.use(express.json())
 app.use(routes)
 
 app.listen(process.env.PORT || 3333, () => {
-    console.log("server running")
+    console.log('server running')
 })
