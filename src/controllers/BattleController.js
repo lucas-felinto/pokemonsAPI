@@ -1,9 +1,24 @@
-const Pokemon = require("../models/Pokemon")
-const sequelize = require("../database")
+const Pokemon = require('../models/Pokemon')
+const sequelize = require('../database')
 
 module.exports = {
     async battle (req, res, next) {
         const t = await sequelize.transaction()
+
+        //Updating Pokemon's level after battle
+        const levelUpdate = async function (pokemonWinner, pokemonLooser) {
+            pokemonWinner.nivel += 1
+            await pokemonWinner.save({ transaction: t })
+
+            pokemonLooser.nivel -= 1
+            if (pokemonLooser.nivel === 0) {
+                await pokemonLooser.destroy({ transaction: t })
+            } else {
+                await pokemonLooser.save({ transaction: t })
+            }
+            await t.commit()
+        }
+
         try {
             const { pokemonAId, pokemonBId } = req.params
             const pokemonA = await Pokemon.findByPk(pokemonAId)
@@ -11,25 +26,48 @@ module.exports = {
 
             const battleArena = [pokemonA, pokemonB]
 
-            if (!pokemonA || !pokemonB) res.status(404).json({error: "Pokemon não encontrado"})
-
-            if (pokemonA.nivel == pokemonB.nivel) {
+            if (!pokemonA || !pokemonB) res.status(404).json({error: 'Pokemon não encontrado'})
+            
+            //Same Level Battle
+            if (pokemonA.nivel === pokemonB.nivel) {
                 const pokemonWinner = battleArena[Math.floor(Math.random() * 2)]
                 const pokemonLooser = pokemonWinner.id === pokemonA.id ? pokemonB : pokemonA
 
-                pokemonWinner.nivel += 1
-                await pokemonWinner.save({ transaction: t })
+                levelUpdate(pokemonWinner, pokemonLooser)
 
-                pokemonLooser.nivel -= 1
-                if (pokemonLooser.nivel === 0) {
-                    await pokemonLooser.destroy({ transaction: t })
-                } else {
-                    await pokemonLooser.save({ transaction: t })
+                return res.send({"vencedor": pokemonWinner, "perdedor": pokemonLooser})
+            } else {
+                //Different Level Battle
+                const differentLevelBattle = async function (higherLevelPokemon, lowestLevelPokemon) {
+                    // Set the odds and get a random number between 1 and 100 to pick the winner 
+                    var randomNumber = (Math.floor(Math.random() * 100) + 1)
+                    const higherLevelChances = 66
+                
+                    if (randomNumber <= higherLevelChances) {
+                        //Higher Level Pokemon Wins
+                        levelUpdate(higherLevelPokemon, lowestLevelPokemon)
+
+                        return res.send({"vencedor": higherLevelPokemon, "perdedor": lowestLevelPokemon})
+                    } else {
+                        //Lower Level Pokemon Wins 
+                        levelUpdate(lowestLevelPokemon, higherLevelPokemon)
+                        
+                        return res.send({"vencedor": lowestLevelPokemon, "perdedor": higherLevelPokemon})
+                    }
                 }
 
-                await t.commit()
+                //Setting the pokemons to battle
+                if (pokemonA.nivel > pokemonB.nivel) {
+                    const higherLevelPokemon = pokemonA
+                    const lowestLevelPokemon = pokemonB
 
-                return res.send({ pokemonWinner, pokemonLooser })
+                    differentLevelBattle(higherLevelPokemon, lowestLevelPokemon)
+                } else if (pokemonB.nivel > pokemonA.nivel) {
+                    const higherLevelPokemon = pokemonB
+                    const lowestLevelPokemon = pokemonA
+
+                    differentLevelBattle(higherLevelPokemon, lowestLevelPokemon)
+                }
             }   
         } catch (error) {
             await t.rollback()

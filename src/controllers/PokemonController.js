@@ -1,4 +1,4 @@
-const Pokemon = require("../models/Pokemon")
+const Pokemon = require('../models/Pokemon')
 
 module.exports = {
     async index (req, res) {
@@ -15,9 +15,9 @@ module.exports = {
     },
     async store (req, res) {
         const { tipo, treinador, nivel } = req.body
-        const acceptedPokemons = ["mewtwo", "charizard", "pikachu"]
+        const acceptedPokemons = ['mewtwo', 'charizard', 'pikachu']
 
-        if (!acceptedPokemons.find(pokemon => pokemon === tipo)) res.status(400).json({message: "O tipo não pode ser diferente de charizard, mewtwo ou pikachu"})
+        if (!acceptedPokemons.find(pokemon => pokemon === tipo)) res.status(400).json({message: 'O tipo não pode ser diferente de charizard, mewtwo ou pikachu'})
 
         const pokemon = await Pokemon.create({
             tipo,
