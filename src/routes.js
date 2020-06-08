@@ -1,6 +1,6 @@
 const express = require('express')
-const PokemonController = require('./controllers/PokemonController')
-const BattleController = require('./controllers/BattleController')
+const PokemonController = require('../src/api/controllers/PokemonController')
+const BattleController = require('../src/api/controllers/BattleController')
 
 const routes = express.Router()
 
