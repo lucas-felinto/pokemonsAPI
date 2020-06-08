@@ -21,8 +21,8 @@ const Pokemons = database.define('pokemons', {
       allowNull: false
     }
 }, {
-        timestamps: false,
-        schema: 'LUCAS'
+      timestamps: false,
+      schema: 'LUCAS'
     })
 
 module.exports = Pokemons
