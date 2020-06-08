@@ -1,7 +1,7 @@
 const sequelize = require('../database')
 
 //Updating pokemon's level after battle
-const levelUpdate = async function (pokemonWinner, pokemonLooser) {
+const levelUpdate = async (pokemonWinner, pokemonLooser) => {
     const t = await sequelize.transaction()
 
     pokemonWinner.nivel += 1

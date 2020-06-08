@@ -14,7 +14,7 @@ module.exports = {
         return res.send(pokemon)
     },
     async store (req, res) {
-        const { tipo, treinador, nivel } = req.body
+        const { tipo, treinador } = req.body
         const acceptedPokemons = ['mewtwo', 'charizard', 'pikachu']
 
         if (!acceptedPokemons.find(pokemon => pokemon === tipo)) res.status(400).json({message: 'O tipo não pode ser diferente de charizard, mewtwo ou pikachu'})

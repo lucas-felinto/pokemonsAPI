@@ -9,6 +9,7 @@ routes.get('/pokemons/:id', PokemonController.show)
 routes.post('/pokemons', PokemonController.store)
 routes.put('/pokemons/:id', PokemonController.put)
 routes.delete('/pokemons/:id', PokemonController.delete)
+
 routes.post('/batalhar/:pokemonAId/:pokemonBId', BattleController.battle)
 
 
