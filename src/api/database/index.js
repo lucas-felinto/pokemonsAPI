@@ -10,6 +10,9 @@ const connection = new Sequelize({
         options: {
           encrypt: true,
           schema: process.env.DB_SCHEMA
+        },
+        pool: {
+          acquire: 60000
         }
       }
 })
