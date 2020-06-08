@@ -27,13 +27,12 @@ const Pokemons = database.define('pokemons', {
 
 module.exports = Pokemons
 
-Pokemons
-  .authenticate()
-  .then(() => {
-    sequelize.sync();
-    logger.info('Connection successfully.');
-  })
-  .catch((err) => {
-    logger.error(`Connection error: ${err}`);
-    process.exit(-1);
-  })
+// Pokemons.sync({
+//     logging: console.log,
+//     force: true
+// })
+// .then(() => {
+//     console.log("connection sucessfully")
+// }).catch(err => {
+//     console.error("unable to connect", err)
+// })
