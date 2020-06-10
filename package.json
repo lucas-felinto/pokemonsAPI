@@ -8,14 +8,16 @@
     "dev": "nodemon src/server.js",
     "test": "jest",
     "test:unit": "jest test/unit/unit.test.js",
-    "test:integration": "jest test/integration/integration.test.js"
+    "test:integration": "jest test/integration/integration.test.js",
+    "docs": "npx apidoc -i ./ -o ./docs"
   },
   "dependencies": {
+    "apidoc": "^0.23.0",
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mssql": "^6.2.0",
-    "sequelize": "^5.21.11",
+    "sequelize": "^5.21.12",
     "tedious": "^8.3.0"
   },
   "devDependencies": {

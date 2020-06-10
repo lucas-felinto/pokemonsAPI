@@ -49,5 +49,3 @@ module.exports = {
         }
     }
 }
-
-module.exports = { randomNumber }
