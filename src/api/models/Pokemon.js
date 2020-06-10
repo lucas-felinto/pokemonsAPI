@@ -1,6 +1,8 @@
 const Sequelize = require ('sequelize')
 const database = require('../database')
 
+const acceptedPokemons = ['mewtwo', 'charizard', 'pikachu']
+
 const Pokemons = database.define('pokemons', {
     id: {
       type: Sequelize.INTEGER,
@@ -9,7 +11,7 @@ const Pokemons = database.define('pokemons', {
       allowNull: false
     },
     tipo: {
-      type: Sequelize.TEXT,
+      type: Sequelize.ENUM(acceptedPokemons),
       allowNull: false
     },
     treinador: {
@@ -20,10 +22,11 @@ const Pokemons = database.define('pokemons', {
       type: Sequelize.INTEGER,
       allowNull: false
     }
-}, {
+    }, {
       timestamps: false,
       schema: 'LUCAS'
-    })
+    }
+)
 
 module.exports = Pokemons
 

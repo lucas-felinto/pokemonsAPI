@@ -9,7 +9,7 @@ module.exports = {
         const { id } = req.params
         const pokemon = await Pokemon.findByPk(id)
         
-        if (!pokemon) res.status(400).json({message: 'O pokemon não pode ser encontrado'})
+        if (!pokemon) return res.status(400).send('O pokemon não pode ser encontrado')
 
         return res.send(pokemon)
     },
@@ -17,7 +17,7 @@ module.exports = {
         const { tipo, treinador } = req.body
         const acceptedPokemons = ['mewtwo', 'charizard', 'pikachu']
 
-        if (!acceptedPokemons.find(pokemon => pokemon === tipo)) res.status(400).json({message: 'O tipo não pode ser diferente de charizard, mewtwo ou pikachu'})
+        if (!acceptedPokemons.find(pokemon => pokemon === tipo)) return res.status(400).send('O tipo não pode ser diferente de charizard, mewtwo ou pikachu')
 
         const pokemon = await Pokemon.create({
             tipo,
