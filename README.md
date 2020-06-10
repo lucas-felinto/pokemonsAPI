@@ -14,6 +14,7 @@
 
 ## Links
 API: <a href="https://jazida-api.herokuapp.com/">https://jazida-api.herokuapp.com/<a>
+     
 Documentação: <a href="https://jazida-api.herokuapp.com/api-doc/">https://jazida-api.herokuapp.com/api-doc/<a>
      
 ## Iniciando
@@ -26,6 +27,7 @@ Certifique-se de estar na pasta raíz do projeto
 - Modifique as variáveis ambiente:
 
 ``` cp .env.example .env ```
+
 ``` nano .env ```
 
 - Iniciando
