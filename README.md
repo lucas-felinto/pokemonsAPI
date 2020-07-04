@@ -24,7 +24,7 @@
 
 ## :pushpin: About
 
-It's a simple but complete API containing a CRUD to register pokemons and an endpoint to battle registered pokemons. The battle contains an algorithm to distribute more chances to the higher level pokemon. Pokemons with same level have the same odds.
+It's a simple but complete API containing a CRUD to register pokemons and an endpoint to battle registered pokemons. The battle contains an algorithm to distribute more chances to the higher level pokemon. Pokemons with same level have the same odds. When the loser pokemon have the level equals 0, he's deletaded.
 
 ## :link: Links
 
