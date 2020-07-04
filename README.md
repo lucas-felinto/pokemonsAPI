@@ -12,9 +12,9 @@
 </h4>
 
 ## Links
-API: <a href="https://jazida-api.herokuapp.com/">https://jazida-api.herokuapp.com/<a>
+API: <a href="https://pokemonsapi.herokuapp.com/">https://pokemonsapi.herokuapp.com/<a>
      
-Documentação: <a href="https://jazida-api.herokuapp.com/api-doc/">https://jazida-api.herokuapp.com/api-doc/<a>
+Documentação: <a href="https://pokemonsapi.herokuapp.com/api-doc/">https://pokemonsapi.herokuapp.com/api-doc/<a>
      
 ## Iniciando
 Certifique-se de estar na pasta raíz do projeto
