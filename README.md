@@ -2,7 +2,9 @@
      <img alt="pokemon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/640px-International_Pok%C3%A9mon_logo.svg.png" width="300" heigth="250" />
      <img alt="pokemon" src="https://camo.githubusercontent.com/3a4297b1f842914d979c8ad299d4fb7dd9c46db0/687474703a2f2f6173736574732e706f6b656d6f6e2e636f6d2f6173736574732f636d73322f696d672f706f6b656465782f66756c6c2f3030312e706e67" width="150" heigth="250" />
   </p>
-<p align="center">
+<p align="center"> 
+     <img src="https://img.shields.io/badge/node-%3E%3D%2010.0.0-brightgreen">
+     <img src="https://img.shields.io/badge/website-up-brightgreen">
   <a href="LICENSE">
     <img alt="License" src="https://img.shields.io/badge/license-MIT-%23F8952D">
   </a>
@@ -14,7 +16,7 @@
 <h4 align="center">  
      <a href="#pushpin-about">About</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
      <a href="#link-links">Links</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-     <a href="#link-rocket">Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+     <a href="#rocket-features">Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
      <a href="#beginner-getting-started">Getting Started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
      <a href="#vertical_traffic_light-running-tests">Tests</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
      <a href="#license">License</a>
